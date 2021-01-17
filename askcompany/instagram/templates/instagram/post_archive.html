@@ -1,0 +1,17 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang='ko'>
+    <head></head>
+    <body>
+        <h2>latest</h2>
+        {{ latest }}
+
+        <h2>data_list</h2>
+     
+        {% for date in date_list %}
+            {{ date|date:"Y" }}
+            {{ date.year }}
+            
+        {% endfor %}
+
+    </body>
