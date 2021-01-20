@@ -9,7 +9,8 @@ class PostAdmin(admin.ModelAdmin):
     list_display_links = ['message'] # 링크 걸기
     list_filter = ['created_at','is_public'] # 지정 필드값으로 필터링 옵션 제공
     search_fields = ['message'] # 해당 필드의 검색을 할 수 있게 해줌
-
+    # form = PostForm
+    
     def photo_tag(self,post):
         if post.photo:
             return mark_safe(f'<img src="{post.photo.url}" style="width:72px;"/>')

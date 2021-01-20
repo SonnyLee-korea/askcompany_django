@@ -1,10 +1,16 @@
 from django.db import models
+from django.core.validators import MinLengthValidator
 from django.conf import settings
 from django.urls import reverse
 
+
+
+
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
-    message = models.TextField()
+    message = models.TextField(
+        validators=[MinLengthValidator(10)]
+    )
     photo = models.ImageField(blank=True,upload_to='instagram/post/%Y/%m/%d') #/media/instagram/post/
     tag_set = models.ManyToManyField('Tag',blank=True) # m : n 에서는 blank 를 True로 보통해야함 : 태그를 안하는 경우도 있으니까 => 장고 유효성 검사에서 걸림
     is_public = models.BooleanField(default=False,verbose_name='공개여부')

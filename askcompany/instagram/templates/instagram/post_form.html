@@ -1,0 +1,14 @@
+{% extends 'instagram/layout.html' %}
+{% block title %}
+    Instagram / Post form
+{% endblock title %}
+
+{% block content %}
+    <form action='' method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type='submit' value='저장'>
+    </form>
+{% endblock content %}
