@@ -17,6 +17,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
+
     def __str__(self):
         # return f"Custom Post object ({self.id})"
         return self.message
@@ -26,6 +27,10 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-id']
+        # unique_together = [
+        #     ('server','username')
+        # ] => 유니크하게 DB에 넣고 싶을 때
+
     # Java의 toString
     
     
